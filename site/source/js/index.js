@@ -10,6 +10,7 @@ window.jade = require('jade/runtime')
 
 var serviceLocator = require('service-locator')()
   , Emitter = require('events').EventEmitter
+  , router = require('page')
 
   // Responsive designs need breakpoint events to
   // fire in JS when the browser window is resized
@@ -27,6 +28,7 @@ serviceLocator.register('breakpointManager', bm)
 serviceLocator.register('config', require('../../../config.json'))
 serviceLocator.register('hub', new Emitter())
 serviceLocator.register('logger', require('./logger'))
+serviceLocator.register('router', router)
 
 // Bootstrap all the of the components
 require('./bootstrap')(serviceLocator)

@@ -173,4 +173,23 @@ function createController (serviceLocator) {
     ))
   })
 
+  serviceLocator.router.get('/style-guide/homework-helper', function (req, res) {
+    var template = compileJade(__dirname + '/../views/pages/homework-helper.jade')
+      , formattedUrls = urlFormatter(req)
+      , getShareUrls = require('../../../../site/lib/get-share-urls.js')
+      , twitterOptions =
+        { text: 'Example'
+        , via: '@test'
+        , hashtags: 'one,two'
+        }
+
+    res.send(template(
+      { config: serviceLocator.config
+      , formattedUrls: formattedUrls
+      , shareUrls: getShareUrls(formattedUrls.initialUrl, twitterOptions)
+      , meta: { title: 'Template Variables' }
+      }
+    ))
+  })
+
 }

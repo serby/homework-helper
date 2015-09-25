@@ -1,0 +1,8 @@
+#content
+  .desktop-one-half.content-center
+    h2.h2 Spellings
+    p Which spellings do you want to be tested on?
+    ul
+      each spellingGroup in collection
+        li
+          a(href='/spellings/' + spellingGroup.id)= spellingGroup.get('description')
