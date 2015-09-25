@@ -1,7 +1,7 @@
 {
   "global": {
-    "title": "Learn",
-    "platform": "learn",
+    "title": "Homework Helper",
+    "platform": "homeworkhelper",
     "description": "Learning tools for children",
     "client": "clock",
     "url": "http://localhost.clockhosting.com:8310",

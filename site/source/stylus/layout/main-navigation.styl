@@ -5,17 +5,19 @@
 
 
 .main-navigation
-  border-bottom 1px solid $color--grey
+  background-color $color--secondary
 
   li
     display inline-block
 
     a
       display inline-block
+      font-weight normal
       padding 0.5em 1em
-
+      margin -1px 0px -1px 0px
+      color $color--white
       &:hover
       &:focus
       &:active
-        color $color--white
         background-color $color--primary
+        text-decoration none
