@@ -91,7 +91,6 @@
     "pliers-imagemin": "^2.0.2",
     "pliers-modernizr": "^0.1.2",
     "pliers-npm-security-check": "1",
-    "pliers-svg-sprite": "^0.1.0",
     "stylestats": "^4.1.4",
     "stylint": "^0.9.9",
     "stylperjade": "^1.2.2",
