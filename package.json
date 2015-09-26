@@ -69,7 +69,7 @@
     "versionator": "^1.0.0",
     "watchify": "^3.4.0",
     "x-frame-options": "^1.0.0",
-    "pliers": "^1.2.1",
+    "pliers": "^1.2.1"
   },
   "devDependencies": {
     "cf-changelog": "^1.0.0",
