@@ -2,10 +2,10 @@
   .desktop-one-half.content-center
     h2.h2 Spellings Test 
     h3.h4.dragon {{model.description}}
-    p You will be tested on these:
-    ul.js-spellings
+    p You will be tested on #{model.get('total')} spellings:
+    .output.js-spellings
       each spelling in model.get('spellings')
-        li= spelling
+        span.correct #{spelling} 
     
     .button-group.centered
       button.button.button--primary.mobile-one-whole.js-btn-start Start
