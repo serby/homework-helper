@@ -73,13 +73,16 @@
     "pliers-imagemin": "^2.0.2",
     "pliers-modernizr": "^0.1.2",
     "pliers-npm-security-check": "1",
-    "pliers": "^1.2.1"
+    "pliers": "^1.2.1",
+    "node-notifier": "^4.2.3",
+    "csslint": "^0.10.0",
+    "stylperjade": "^1.2.2",
+    "stylestats": "^4.1.4",
+    "cli-table": "^0.3.1"
   },
   "devDependencies": {
     "cf-changelog": "^1.0.0",
     "chai": "^3.0.0",
-    "cli-table": "^0.3.1",
-    "csslint": "^0.10.0",
     "depcheck": "^0.4.7",
     "eslint": "^1.4.3",
     "eslint-config-clock": "^1.0.0",
@@ -89,10 +92,7 @@
     "jsinspect": "^0.7.0",
     "mocha": "^2.3.2",
     "mockdate": "^1.0.3",
-    "node-notifier": "^4.2.3",
-    "stylestats": "^4.1.4",
     "stylint": "^0.9.9",
-    "stylperjade": "^1.2.2",
     "supertest": "^1.0.1"
   }
 }
