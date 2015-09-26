@@ -17,19 +17,18 @@ class Spelling extends Model {
         , description: spellings.description })
 
     this.spellings = shuffle(spellings.spellings)
-    this.say = serviceLocator.say
     this.set('total', this.spellings.length)
   }
 
   start () {
     this.emit('start')
-    this.say('Hi Martha, are you ready to start?')
+    this.serviceLocator.say('Hi Martha, are you ready to start?')
     this.set('current', 1)
     this.ask()
   }
 
   ask () {
-    this.say('How do you spell. ' + this.getCurrentSpelling())
+    this.serviceLocator.say('How do you spell. ' + this.getCurrentSpelling())
   }
 
   getCurrentSpelling () {
@@ -46,11 +45,11 @@ class Spelling extends Model {
   }
 
   complete () {
-    this.say(getPhrase('wellDone'))
+    this.serviceLocator.say(getPhrase('wellDone'))
     if (this.get('mistakes') === 0) {
-      this.say('You didn\'t make a single mistake.')
+      this.serviceLocator.say('You didn\'t make a single mistake.')
     } else {
-      this.say('I think you need a little more practice. You made ' + this.get('mistakes') + ' mistakes.')
+      this.serviceLocator.say('I think you need a little more practice. You made ' + this.get('mistakes') + ' mistakes.')
     }
     this.emit('complete', this.get('total'), this.get('mistakes'))
   }
@@ -58,12 +57,12 @@ class Spelling extends Model {
   answer (answer) {
     var lowerCaseAnswer = answer.toLowerCase()
     if (lowerCaseAnswer === this.getCurrentSpelling()) {
-      this.say(getPhrase('correct'))
+      this.serviceLocator.say(getPhrase('correct'))
       this.emit('correct', lowerCaseAnswer)
       this.next()
       return true
     } else {
-      this.say(getPhrase('wrong'))
+      this.serviceLocator.say(getPhrase('wrong'))
       this.set('mistakes', this.get('mistakes') + 1)
       this.emit('wrong', lowerCaseAnswer)
       return false
