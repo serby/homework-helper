@@ -30,16 +30,16 @@ class PlayView extends View {
       delay(() => {
         this.remove()
         this.serviceLocator.router('/spellings')
-      }, 12000)
-    }, 4000)
+      }, 20000)
+    }, 5000)
   }
 
   onStart () {
-    this.$el.find('.js-answer').val('').focus()
+    this.$el.find('.js-answer').focus().val('')
   }
 
   onNext () {
-    this.$el.find('.js-answer').val('').focus()
+    this.$el.find('.js-answer').focus().val('')
   }
 
   onCorrect (answer) {
@@ -55,16 +55,22 @@ class PlayView extends View {
     var $answer = this.$el.find('.js-answer')
       , answer = $answer.val()
 
+    $answer.focus()
+
     if (answer === '') return false
     this.emit('submit', answer)
-    $answer.focus()
+  }
+
+  handleRepeat () {
+    this.emit('repeat')
+    this.$el.find('.js-answer').focus()
   }
 
   render () {
     this.$el.empty().append(dragon(template(), this.model))
     this.$el.find('.js-answer').focus()
     this.$el.find('form').on('submit', this.handleSubmit.bind(this))
-    this.$el.find('.js-btn-repeat').on('click', this.emit.bind(this, 'repeat'))
+    this.$el.find('.js-btn-repeat').on('click', this.handleRepeat.bind(this))
     return this
   }
 
