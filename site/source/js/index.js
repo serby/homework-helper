@@ -18,6 +18,8 @@ var serviceLocator = require('service-locator')()
   , bm = createBreakpointManager()
   , breakpoints = require('./breakpoints')
 
+router()
+
 // Create breakpoints on the next tick so that modules
 // can know which breakpoint the page was loaded in
 process.nextTick(function () {
