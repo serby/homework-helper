@@ -2,8 +2,20 @@ var ListView = require('../views/list')
   , StartView = require('../views/start')
   , PlayView = require('../views/play')
   , UnsupportedView = require('../views/unsupported')
+  , SpellingModel = require('../models/spelling')
 
 function controller (serviceLocator, collection) {
+
+  function random (orginalModel, collection) {
+    var data = orginalModel.toJSON()
+    collection.filter(model => {
+        return orginalModel.id !== model.id
+      }).forEach(model => {
+        data.spellings = data.spellings.concat(model.spellings.slice(0, 2 + Math.floor(Math.random() * 5)))
+      })
+
+    return new SpellingModel(serviceLocator, data)
+  }
 
   serviceLocator.router('/unsupported', () => {
     var unsupportedView = new UnsupportedView(serviceLocator)
@@ -20,7 +32,9 @@ function controller (serviceLocator, collection) {
   })
 
   serviceLocator.router('/spellings/:uri', (ctx) => {
-    var startView = new StartView(serviceLocator, collection.get(ctx.params.uri))
+    var model = collection.get(ctx.params.uri)
+      , viewModel = (ctx.querystring === 'random') ? random(model, collection) : model
+      , startView = new StartView(serviceLocator, viewModel)
 
     startView.on('start', () => {
       startView.remove()

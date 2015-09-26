@@ -4,7 +4,7 @@ var compileJade = require('../../../../site/lib/compile-jade')
 
 module.exports = function createController (serviceLocator) {
 
-  serviceLocator.router.get('/*', function (req, res) {
+  serviceLocator.router.get('/spellings*', function (req, res) {
     var formattedUrls = urlFormatter(req)
 
     res.send(template(

@@ -6,3 +6,9 @@
       each spellingGroup in collection
         li
           a(href='/spellings/' + spellingGroup.id)= spellingGroup.get('description')
+
+    .field(id='randomExtra')
+      .field__answer
+        label
+          input.js-randomExtra.control.control--boolean(type='checkbox', name='randomExtra', value='true')
+          span Sprinkle a handful of spellings from the other groups into the test?
