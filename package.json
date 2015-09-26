@@ -68,7 +68,8 @@
     "ventnor": "^0.2.0",
     "versionator": "^1.0.0",
     "watchify": "^3.4.0",
-    "x-frame-options": "^1.0.0"
+    "x-frame-options": "^1.0.0",
+    "pliers": "^1.2.1",
   },
   "devDependencies": {
     "cf-changelog": "^1.0.0",
@@ -85,7 +86,6 @@
     "mocha": "^2.3.2",
     "mockdate": "^1.0.3",
     "node-notifier": "^4.2.3",
-    "pliers": "^1.2.1",
     "pliers-clean-shrinkwrap": "^1.0.1",
     "pliers-imagemin": "^2.0.2",
     "pliers-modernizr": "^0.1.2",
