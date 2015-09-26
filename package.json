@@ -31,7 +31,6 @@
     "bunyan": "^1.5.1",
     "cf-formatter": "^1.0.2",
     "cf-health-check": "^1.0.1",
-    "cf-metrics": "^3.0.0",
     "chale": "^1.1.0",
     "cheerio": "^0.19.0",
     "clean-css": "^3.4.3",

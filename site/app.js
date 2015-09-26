@@ -7,7 +7,6 @@ var bootstrap = require('./bootstrap')
   , logLevel = process.env.LOG_LEVEL || (inDevelopmentMode ? 'debug' : 'info')
   , bunyan = require('bunyan')
   , mailer = require('../lib/mailer')
-  , Metrics = require('cf-metrics')
   , UberCache = require('uber-cache')
   , createConfigury = require('configury')
   , config = createConfigury(__dirname + '/../config.json')(process.env.NODE_ENV)
@@ -18,16 +17,6 @@ serviceLocator
   .register('logger', bunyan.createLogger({ name: 'site', stream: process.stdout, level: logLevel }))
   .register('cache', new UberCache())
   .register('mailer', mailer(serviceLocator.config.mailAuth))
-  .register('metrics', new Metrics(config.statsd.host
-     , config.statsd.port
-     , { client: config.client
-       , platform: config.platform
-       , application: 'site'
-       , environment: config.env
-       , logger: serviceLocator.logger
-       }
-     )
-   )
 
 bootstrap(serviceLocator, function (error) {
   if (error) throw error
