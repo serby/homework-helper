@@ -1,6 +1,6 @@
 var allPhrases =
   { correct:
-    [ 'Oh yes! You are flying!'
+    [ 'Oh yes! You\'re flying!'
     , 'Yes, well done!'
     , 'Very good!'
     , 'Correct!'

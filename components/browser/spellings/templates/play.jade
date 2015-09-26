@@ -4,15 +4,16 @@
       h2.h2 Spellings Test
       h3.h4.dragon {{model.description}}
       .js-output.output
-      .progress-bar.js-progress.dragon Spelling {{model.current}} / {{model.total}}
+      .progress-bar.js-progress.dragon Spelling {{model.current}} / {{model.total}} - Mistakes: {{model.mistakes}}
       input.control.control--text.js-answer(type='text', name='answer', autocomplete='off', autocorrect='off', autocapitalize='off')
       br
       p.centered
         small Enter your answer then click the <strong>Submit</strong> or press the enter key.
 
       .button-group.centered
-        input.button.js-btn-repeat(type='button', name='repeat', value='Say Again')
-        input.button.button--primary(type='submit', name='submit', value='Submit')
+        button.button.button--primary(type='submit', autofocus) Submit
+        button.button.js-btn-repeat Say Again
+
 
     .js-no-mistakes.is-hidden
       iframe(width='100%', height='480', src='', frameborder='0', allowfullscreen)

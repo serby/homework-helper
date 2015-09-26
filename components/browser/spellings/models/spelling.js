@@ -2,7 +2,7 @@
 var Model = require('merstone')
   , getPhrase = require('../lib/phrase-maker')
   , shuffle = require('lodash.shuffle')
-
+  , plural = require('plural')
 class Spelling extends Model {
 
   constructor (serviceLocator, spellings) {
@@ -10,7 +10,6 @@ class Spelling extends Model {
     Model.call(this, serviceLocator
       , { current: 1
         , total: 0
-        , answers: []
         , mistakes: 0
         , _id: spellings.uri
         , spellings: spellings.spellings
@@ -24,6 +23,7 @@ class Spelling extends Model {
     this.emit('start')
     this.serviceLocator.say('Hi Martha, are you ready to start?')
     this.set('current', 1)
+    this.set('mistakes', 0)
     this.ask()
   }
 
@@ -49,7 +49,8 @@ class Spelling extends Model {
     if (this.get('mistakes') === 0) {
       this.serviceLocator.say('You didn\'t make a single mistake.')
     } else {
-      this.serviceLocator.say('I think you need a little more practice. You made ' + this.get('mistakes') + ' mistakes.')
+      this.serviceLocator.say('I think you need a little more practice. You made ' +
+        this.get('mistakes') + ' ' + plural('mistake', this.get('mistakes')) + '.')
     }
     this.emit('complete', this.get('total'), this.get('mistakes'))
   }
