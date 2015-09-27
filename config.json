@@ -1,17 +1,13 @@
 {
   "global": {
-    "title": "Homework Helper",
-    "platform": "homeworkhelper",
+    "title": "Learn Tiger",
+    "platform": "learntiger",
     "description": "Learning tools for children",
-    "client": "clock",
+    "client": "serby",
     "url": "http://localhost.clockhosting.com:8310",
     "hostname": "localhost.clockhosting.com",
     "domain": "localhost.clockhosting.com",
     "port": 8310,
-    "statsd": {
-      "host": "graphite.clockhosting.com",
-      "port": "8125"
-    },
     "allowCrawlers": false,
     "mailAuth": {
       "user": "postmaster@clock.mailgun.org",
@@ -19,17 +15,17 @@
     },
     "numProcesses": 1,
     "meta": {
-      "title": "Learn",
-      "strapline": "",
+      "title": "Learn Tiger",
+      "strapline": "Learning tools for children",
       "description": null,
-      "creator": "Clock – http://www.clock.co.uk",
+      "creator": "Paul Serby paul@serby.net",
       "publisher": null,
       "author": null,
-      "iosTitle": "Short Title",
-      "msTitle": "Full Title",
+      "iosTitle": "Learn Tiger",
+      "msTitle": "Learn Tiger",
       "msTileColor": "#0095da",
       "themeColor": "#0095da",
-      "ogTwitterUser": "@clock",
+      "ogTwitterUser": "@serby",
       "googleSiteVerification": null,
       "bingSiteVerification": null
     },
@@ -60,10 +56,10 @@
       "isoFileSystem": "YYYYMMDDTHHmmss[Z]"
     }
   },
-  "staging": {
-    "numProcesses": 3
-  },
   "production": {
+    "url": "https://www.learntiger.com",
+    "hostname": "www.learntiger.com",
+    "domain": "learntiger.com",
     "numProcesses": 4,
     "allowCrawlers": true
   }
