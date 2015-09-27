@@ -12,10 +12,14 @@ class Spelling extends Model {
         , total: 0
         , mistakes: 0
         , _id: spellings.uri
-        , spellings: spellings.spellings
         , description: spellings.description })
 
-    this.spellings = shuffle(spellings.spellings)
+    this.setSpellings(spellings.spellings)
+  }
+
+  setSpellings (spellings) {
+    this.set('spellings', spellings)
+    this.spellings = shuffle(spellings)
     this.set('total', this.spellings.length)
   }
 
