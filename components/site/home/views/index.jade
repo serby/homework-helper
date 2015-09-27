@@ -3,3 +3,30 @@ extend /default
 block content
 
   #app
+    .grid  
+      .grid__item.one-whole.desktop-one-half
+        .prose
+          h1 Welcome to Learn Tiger
+          p This is a site I set up to help my daugter Martha with her homework.
+          p For now it just has a  
+            a(href='/spellings') spellings test game
+            |, but I'm in the process of adding a game to test number bonds.
+
+          h2 Browser Support
+          p This is personal site and it only works on very new browsers. Chrome, 
+            | Safari, Mobile Safari iOS 7+. If you’ve not already, you should 
+            a(href='http://www.google.com/chrome/') download Chrome for free.
+
+          h2 Useful Learning Resources
+
+          p Martha is learning about doubling, and halving and in this weeks
+            | homework there was a link the 
+            a(href='http://www.topmarks.co.uk/maths-games/hit-the-button') Hit the Button 
+            | game on the Topmarks website.
+          p 
+            a(href='http://www.topmarks.co.uk/maths-games/5-7-years/counting') Topmarks 
+            | also has a ton of other games for learning maths and english for all 
+            | age groups.
+
+      .grid__item.one-whole.desktop-one-half
+        img(src='/assets/img/content/tiger.jpg', width='20%')

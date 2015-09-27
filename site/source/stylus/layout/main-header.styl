@@ -9,6 +9,17 @@
   border-bottom 1px solid $color--grey
   background-color $color--primary
   box-shadow inset 0px -7px 25px -8px rgba(0, 0, 0, 0.60)
+  position relative
+  .logo
+    background-color white
+    -webkit-mask-image versionPath('/assets/img/sprite/tiger.svg')
+    mask-image versionPath('/assets/img/sprite/tiger.svg')
+    -webkit-mask-size cover
+    mask-size cover
+    width 60px
+    height 60px
+    display inline-block
+    float left
 
 .site-title
   font-family $base--font-heading
