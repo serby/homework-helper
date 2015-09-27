@@ -18,7 +18,6 @@ function createSay (cb) {
     selectedVoice = voices[0]
     if (selectedVoice === undefined) {
       selectedVoice = iOS9voice
-      rate = 0.3
     } else {
       selectedVoice = voices.filter(voice => { return (/female/i).test(voice.name) })[0] || selectedVoice
     }
