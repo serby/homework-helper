@@ -1,10 +1,10 @@
 var compileJade = require('../../../../site/lib/compile-jade')
   , urlFormatter = require('../../../../site/lib/url-formatter')
-  , template = compileJade(__dirname + '/../views/index.jade')
+  , homeTemplate = compileJade(__dirname + '/../views/index.jade')
+  , conkerTemplate = compileJade(__dirname + '/../views/conkers.jade')
 
-module.exports = function createController (serviceLocator) {
-
-  serviceLocator.router.get('/', function (req, res) {
+function staticPage (serviceLocator, template) {
+  return function (req, res) {
     var formattedUrls = urlFormatter(req)
 
     res.send(template(
@@ -13,6 +13,10 @@ module.exports = function createController (serviceLocator) {
       , meta: serviceLocator.config.meta
       }
     ))
-  })
+  }
+}
 
+module.exports = function createController (serviceLocator) {
+  serviceLocator.router.get('/', staticPage(serviceLocator, homeTemplate))
+  serviceLocator.router.get('/conkers', staticPage(serviceLocator, conkerTemplate))
 }
