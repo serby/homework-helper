@@ -5,7 +5,7 @@ var iOS9voice =
     , localService: true
     , 'default': true }
     , selectedVoice
-    , rate = 1
+    , defaultRate = 0.9
 
 function createSay (cb) {
 
@@ -22,12 +22,12 @@ function createSay (cb) {
       selectedVoice = voices.filter(voice => { return (/female/i).test(voice.name) })[0] || selectedVoice
     }
     cb(null, say)
-  }, 300)
+  }, 500)
 
-  function say (phrase) {
+  function say (phrase, rate) {
     var msg = new window.SpeechSynthesisUtterance(phrase)
     msg.voice = selectedVoice
-    msg.rate = rate
+    msg.rate = rate || defaultRate
     console.log(phrase)
     window.speechSynthesis.speak(msg)
   }
