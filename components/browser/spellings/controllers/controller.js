@@ -49,7 +49,7 @@ function controller (serviceLocator, collection) {
       , playView = new PlayView(serviceLocator, model)
 
     playView.on('repeat', () => {
-      model.ask()
+      model.ask(0.75)
     })
 
     playView.on('submit', (answer) => {
