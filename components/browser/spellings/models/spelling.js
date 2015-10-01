@@ -31,8 +31,10 @@ class Spelling extends Model {
     this.ask()
   }
 
-  ask () {
-    this.serviceLocator.say('How do you spell. ' + this.getCurrentSpelling())
+  ask (rate) {
+    var current = this.getCurrentSpelling()
+    this.serviceLocator.say('How do you spell. ' + current, rate)
+    this.emit('ask', current)
   }
 
   getCurrentSpelling () {
@@ -60,7 +62,7 @@ class Spelling extends Model {
   }
 
   answer (answer) {
-    var lowerCaseAnswer = answer.toLowerCase()
+    var lowerCaseAnswer = answer.toLowerCase().trim()
     if (lowerCaseAnswer === this.getCurrentSpelling()) {
       this.serviceLocator.say(getPhrase('correct'))
       this.emit('correct', lowerCaseAnswer)
@@ -70,6 +72,7 @@ class Spelling extends Model {
       this.serviceLocator.say(getPhrase('wrong'))
       this.set('mistakes', this.get('mistakes') + 1)
       this.emit('wrong', lowerCaseAnswer)
+      this.ask(0.75)
       return false
     }
   }
