@@ -30,7 +30,7 @@ class PlayView extends View {
       delay(() => {
         this.remove()
         this.serviceLocator.router('/spellings')
-      }, 20000)
+      }, 30000)
     }, 5000)
   }
 
