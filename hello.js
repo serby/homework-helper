@@ -1,4 +1,7 @@
 var http = require('http')
+  , port = process.env.PORT || 1337
+
+console.log('Starting on port %s', port)
 
 http.createServer(function (req, res) {
 
