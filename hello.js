@@ -7,4 +7,4 @@ http.createServer(function (req, res) {
 
   console.log(req.url, req.headers)
 
-}).listen(1337, '127.0.0.1')
+}).listen(process.env.PORT || 1337, '127.0.0.1')
