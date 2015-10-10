@@ -8,7 +8,6 @@
   "licence": "ISC",
   "private": true,
   "scripts": {
-    "start": "node site/app",
     "lint": "eslint -f unix .",
     "inspect": "jsinspect .",
     "pretest": "pliers -a build && npm run lint && npm run inspect && depcheck",
