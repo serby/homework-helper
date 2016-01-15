@@ -3,6 +3,7 @@ var allPhrases =
     [ 'Oh yes! You\'re flying!'
     , 'Yes, well done!'
     , 'Very good!'
+    , 'Boom boom boom!'
     , 'Correct!'
     , 'Wooo! yay! That is right!'
     , 'Yep, good job!'
