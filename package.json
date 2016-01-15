@@ -8,6 +8,7 @@
   "licence": "ISC",
   "private": true,
   "engines": {
+    "node": "4.x.x",
     "npm": "2.x.x"
   },
   "scripts": {
