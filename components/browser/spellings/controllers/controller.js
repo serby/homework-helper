@@ -22,6 +22,10 @@ function controller (serviceLocator, collection) {
     window.$('#app').html(unsupportedView.render().$el)
   })
 
+  serviceLocator.router('/spellings/latest', () => {
+    serviceLocator.router('/spellings/' + collection.first().uri)
+  })
+
   serviceLocator.router('/spellings', () => {
     var listView = new ListView(serviceLocator, collection)
     window.$('#app').html(listView.render().$el)

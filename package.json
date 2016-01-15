@@ -15,7 +15,8 @@
     "posttest": "(istanbul check-coverage --statements 60 --branches 60 --functions 100 --lines 60 && rm -rf coverage) || echo Look at 'coverage/lcov-report/index.html' to find out more",
     "wrap": "npm shrinkwrap && pliers cleanShrinkwrap",
     "update-changelog": "update-changelog",
-    "postinstall": "pliers -a build"
+    "postinstall": "pliers -a build",
+    "start": "node site/app"
   },
   "dependencies": {
     "any-newer-files": "0.0.4",
