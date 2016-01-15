@@ -7,6 +7,9 @@
   "version": "0.0.0",
   "licence": "ISC",
   "private": true,
+  "engines": {
+    "npm": "2.x.x"
+  },
   "scripts": {
     "lint": "eslint -f unix .",
     "inspect": "jsinspect .",
