@@ -25,7 +25,7 @@ class Spelling extends Model {
 
   start () {
     this.emit('start')
-    this.serviceLocator.say('Hi Martha, are you ready to start?')
+    this.serviceLocator.say('Are you ready to start?')
     this.set('current', 1)
     this.set('mistakes', 0)
     this.ask()
