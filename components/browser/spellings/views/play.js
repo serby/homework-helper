@@ -20,6 +20,7 @@ class PlayView extends View {
 
   onComplete (total, mistakes) {
     delay(() => {
+      this.$el.find('.js-end').removeClass('is-hidden')
       if (mistakes === 0) {
         this.$el.find('.js-no-mistakes').removeClass('is-hidden')
         this.$el.find('.js-no-mistakes iframe').attr('src', 'https://www.youtube.com/embed/QH2-TGUlwu4?autoplay=1')
