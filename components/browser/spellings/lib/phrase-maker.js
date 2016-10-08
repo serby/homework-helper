@@ -8,7 +8,12 @@ var allPhrases =
     , 'Wooo! yay! That is right!'
     , 'Yep, good job!'
     , 'You\'re right, well done' ]
-  , wrong: [ 'Oops! Make sure you double check your answer.', 'Not quite right buddy!', 'Sorry that\'s not right', 'Wrong I\'m affraid', 'Oh dear, I think you made a mistake.' ]
+  , wrong:
+    [ 'Oops! Make sure you double check your answer.'
+    , 'Not quite right buddy!'
+    , 'Sorry that\'s not right'
+    , 'Wrong I\'m affraid'
+    , 'Oh dear, I think you made a mistake.' ]
   , wellDone:
     [ 'Nice job! You should get a prize.'
     , 'Well done! You\'re really clever.'
