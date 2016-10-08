@@ -2,15 +2,13 @@ var Model = require('./models/spelling')
   , Collection = require('./collections/collection')
   , initController = require('./controllers/controller')
   , spellingGroups =
-    [ require('./data/spellings-2016-01-11.json')
-    , require('./data/spellings-2015-11-14.json')
-    , require('./data/spellings-2015-10-19.json')
-    , require('./data/spellings-2015-10-12.json')
-    , require('./data/spellings-2015-10-05.json')
-    , require('./data/spellings-2015-09-28.json')
-    , require('./data/spellings-2015-09-21.json')
-    , require('./data/spellings-group1.json')
-    , require('./data/spellings-group2.json') ]
+    [ require('./data/spellings-year3-week1.json')
+    , require('./data/spellings-year3-week2.json')
+    , require('./data/spellings-year3-week3.json')
+    , require('./data/spellings-year3-week4.json')
+    , require('./data/spellings-year3-week5.json')
+    , require('./data/spellings-year3-week6.json')
+    ]
   , initSay = require('./lib/say')
 
 function init (serviceLocator) {

@@ -67,7 +67,7 @@ class PlayView extends View {
   }
 
   render () {
-    this.$el.empty().append(dragon(template(), this.model))
+    this.$el.empty().append(dragon(template({ model: this.model }), this.model))
     this.$el.find('.js-answer').focus()
     this.$el.find('form').on('submit', this.handleSubmit.bind(this))
     this.$el.find('.js-btn-repeat').on('click', this.handleRepeat.bind(this))
