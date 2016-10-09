@@ -1,14 +1,13 @@
 #content
   .desktop-one-half.content-center
     form.js-form
-      h2.h2 Spellings Test
-      h3.h4.dragon {{model.description}}
+      h2.h4.dragon {{model.description}}
       .js-output.output
       .progress-bar.js-progress.dragon Spelling {{model.current}} / {{model.total}} - Mistakes: {{model.mistakes}}
-      input.control.control--text.js-answer(type='text', name='answer', autocomplete='off', autocorrect='off', autocapitalize='off', spellcheck='off')
-      br
-      p.centered
-        small Enter your answer then click the <strong>Submit</strong> or press the enter key.
+
+      .field
+        .field__answer
+          input.control.control--text.js-answer(type='text', name='answer', autocomplete='off', autocorrect='off', autocapitalize='off', spellcheck='off')
 
       .button-group.centered
         button.button.button--primary(type='submit', autofocus) Submit
