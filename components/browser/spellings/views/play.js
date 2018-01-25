@@ -34,12 +34,19 @@ class PlayView extends View {
       }, 30000)
     }, 5000)
   }
-
+  showCurrentWord () {
+    this.$el.find('.js-word').removeClass('is-hidden').html(this.model.getCurrentSpelling())
+    delay(() => {
+      this.$el.find('.js-word').addClass('is-hidden').html()
+    }, 3000)
+  }
   onStart () {
+    this.showCurrentWord()
     this.$el.find('.js-answer').focus().val('')
   }
 
   onNext () {
+    this.showCurrentWord()
     this.$el.find('.js-answer').focus().val('')
   }
 
