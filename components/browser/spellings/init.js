@@ -8,6 +8,8 @@ var Model = require('./models/spelling')
     , require('./data/spellings-year3-week4.json')
     , require('./data/spellings-year3-week5.json')
     , require('./data/spellings-year3-week6.json')
+    , require('./data/spellings-year4-week3.json')
+    , require('./data/spellings-year4-week4.json')
     ]
   , initSay = require('./lib/say')
 
