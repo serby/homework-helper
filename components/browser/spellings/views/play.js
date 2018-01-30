@@ -34,11 +34,11 @@ class PlayView extends View {
       }, 30000)
     }, 5000)
   }
-  showCurrentWord () {
+  showCurrentWord (timeout = 3000) {
     this.$el.find('.js-word').removeClass('is-hidden').html(this.model.getCurrentSpelling())
     delay(() => {
       this.$el.find('.js-word').addClass('is-hidden').html()
-    }, 3000)
+    }, timeout)
   }
   onStart () {
     this.showCurrentWord()
@@ -56,6 +56,7 @@ class PlayView extends View {
 
   onWrong (answer) {
     this.$el.find('.js-output').append('<span class="attempt wrong">' + answer + '</span> ')
+    this.showCurrentWord(2000)
   }
 
   handleSubmit (e) {
@@ -65,7 +66,7 @@ class PlayView extends View {
 
     $answer.focus()
 
-    if (answer === '') return false
+    if (answer.trim() === '') return false
     this.emit('submit', answer)
   }
 

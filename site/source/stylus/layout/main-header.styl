@@ -5,7 +5,9 @@
 
 
 .main-header
-  padding $base--spacing 0
+  padding ($base--spacing / 3) 0
+  +width-min($mq--desktop)
+    padding $base--spacing 0
   border-bottom 1px solid $color--grey
   background-color $color--primary
   box-shadow inset 0px -7px 25px -8px rgba(0, 0, 0, 0.60)
@@ -16,15 +18,21 @@
     mask-image versionPath('/assets/img/sprite/tiger.svg')
     -webkit-mask-size cover
     mask-size cover
-    width 60px
-    height 60px
+    width 25px
+    height 25px
+    +width-min($mq--desktop)
+      width 60px
+      height 60px
     display inline-block
     float left
 
 .site-title
+  font-size 1em
+  +width-min($mq--desktop)
+    font-size 2em
   font-family $base--font-heading
   font-weight 700
-  font-size 2em
+
   margin-bottom 0
   text-transform uppercase
   color white

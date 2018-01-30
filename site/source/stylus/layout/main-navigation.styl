@@ -6,11 +6,14 @@
 
 .main-navigation
   background-color $color--secondary
-
+  padding 0
   li
     display inline-block
 
     a
+      font-size 0.8em
+      +width-min($mq--desktop)
+        font-size 0.8em
       display inline-block
       font-weight normal
       padding 0.5em 1em
