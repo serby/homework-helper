@@ -23,6 +23,10 @@ class Spelling extends Model {
     this.set('total', this.spellings.length)
   }
 
+  getSpellingList () {
+    return this.spellings.map(spelling => typeof spelling === 'string' ? spelling : spelling.answer)
+  }
+
   start () {
     this.emit('start')
     this.serviceLocator.say('Are you ready to start?')
@@ -32,13 +36,21 @@ class Spelling extends Model {
   }
 
   ask (rate) {
-    var current = this.getCurrentSpelling()
+    var current = this.getCurrentSpellingQuestion()
     this.serviceLocator.say('How do you spell. ' + current, rate)
     this.emit('ask', current)
   }
 
-  getCurrentSpelling () {
-    return this.spellings[this.get('current') - 1].toLowerCase()
+  getCurrentSpellingAnswer () {
+    var spelling = this.spellings[this.get('current') - 1]
+    if (typeof spelling === 'string') return spelling
+    return spelling.answer.toLowerCase()
+  }
+
+  getCurrentSpellingQuestion () {
+    var spelling = this.spellings[this.get('current') - 1]
+    if (typeof spelling === 'string') return spelling
+    return spelling.question.toLowerCase()
   }
 
   next () {
@@ -63,7 +75,7 @@ class Spelling extends Model {
 
   answer (answer) {
     var lowerCaseAnswer = answer.toLowerCase().trim()
-    if (lowerCaseAnswer === this.getCurrentSpelling()) {
+    if (lowerCaseAnswer === this.getCurrentSpellingAnswer()) {
       this.serviceLocator.say(getPhrase('correct'))
       this.emit('correct', lowerCaseAnswer)
       this.next()

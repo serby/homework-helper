@@ -1,0 +1,26 @@
+{
+  "uri": "year4-summer-week1",
+  "description": "Year 4 - Summer Week 1",
+  "spellings": [
+    "consider",
+    "experience",
+    "increase",
+    "learn",
+    "particular",
+    { "question": "by. The song was by her favourite band", "answer": "by" },
+    { "question": "buy. I would like to buy some cheese", "answer": "buy" },
+    { "question": "bye. I'm going now, bye!", "answer": "bye" },
+    { "question": "flew. We flew to America on holiday", "answer": "flew" },
+    { "question": "flu. She was in bed with the flu", "answer": "flu" },
+    { "question": "berry. A strawberry is a type of berry", "answer": "berry" },
+    { "question": "bury. Pirates bury their booty", "answer": "bury" },
+    { "question": "brake. Press the brake to slow the car", "answer": "brake" },
+    { "question": "break. Don't break your new iPhone", "answer": "break" },
+    { "question": "board. The question is on the board ", "answer": "board" },
+    { "question": "bored. She was bored or spellings", "answer": "bored" },
+    { "question": "allowed. She was allowed to stay up late", "answer": "allowed" },
+    { "question": "aloud. She shouted aloud", "answer": "aloud" },
+    { "question": "weather. The weather had warmed up recently", "answer": "weather" },
+    { "question": "whether. I wonder whether my parcel will arrive today", "answer": "whether" }
+  ]
+}

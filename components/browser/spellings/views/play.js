@@ -35,7 +35,7 @@ class PlayView extends View {
     }, 5000)
   }
   showCurrentWord (timeout = 3000) {
-    this.$el.find('.js-word').removeClass('is-hidden').html(this.model.getCurrentSpelling())
+    this.$el.find('.js-word').removeClass('is-hidden').html(this.model.getCurrentSpellingAnswer())
     delay(() => {
       this.$el.find('.js-word').addClass('is-hidden').html()
     }, timeout)
