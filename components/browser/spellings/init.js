@@ -4,8 +4,9 @@ var Model = require('./models/spelling')
   , spellingGroups =
     [ require('./data/spellings-year4-summer-week1.json')
     , require('./data/spellings-year4-summer-week2.json')
-    , require('./data/spellings-year4-summer-week3.json')
     , require('./data/spellings-year4-summer-week4.json')
+    , require('./data/spellings-year4-summer-week3.json')
+    , require('./data/spellings-year1-7-may-2018.json')
     ]
   , initSay = require('./lib/say')
 

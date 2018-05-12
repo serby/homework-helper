@@ -1,0 +1,21 @@
+{
+  "uri": "year1-7-may-2018",
+  "description": "Year 1 - 7 May 2018 - ew -- 'oo' sound",
+  "spellings": [
+    "walk",
+    "ask",
+    { "question": "where. Where is the dog going?", "answer": "where" },
+    "few",
+    "chew",
+    "nephew",
+    { "question": "blew. The wind blew through the trees", "answer": "blew" },
+    "jewel",
+    { "question": "cashew. Daddy eats a cashew nut", "answer": "cashew" },
+    "threw",
+    "crew",
+    "grew",
+    { "question": "flew. We flew to America on holiday", "answer": "flew" },
+    "screw",
+    { "question": "yew. There was a yew tree in the garden", "answer": "yew" }
+  ]
+}
