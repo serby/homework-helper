@@ -1,0 +1,21 @@
+{
+  "uri": "year1-7-may-2018",
+  "description": "Year 1 - 7 May 2018 - 'o-e' split digraph. Magic 'e'",
+  "spellings": [
+    "saw",
+    "what",
+    { "question": "which. Which biscuits are your favourite.", "answer": "which" },
+    "pole",
+    "mole",
+    "explode",
+    "alone",
+    "scone",
+    "phone",
+    "bone",
+    { "question": "whole. ", "answer": "whole. The whole class enjoyed the school trip." },
+    "bloke",
+    "home",
+    "smoke",
+    "choke"
+  ]
+}
