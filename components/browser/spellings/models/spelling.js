@@ -3,6 +3,9 @@ var Model = require('merstone')
   , getPhrase = require('../lib/phrase-maker')
   , shuffle = require('lodash.shuffle')
   , plural = require('plural')
+
+const normaliseAnswer = spelling => spelling.toLowerCase().trim().replace(/[^a-z]/g, '')
+
 class Spelling extends Model {
 
   constructor (serviceLocator, spellings) {
@@ -43,7 +46,7 @@ class Spelling extends Model {
 
   getCurrentSpellingAnswer () {
     var spelling = this.spellings[this.get('current') - 1]
-    if (typeof spelling === 'string') return spelling
+    if (typeof spelling === 'string') return spelling.toLowerCase()
     return spelling.answer.toLowerCase()
   }
 
@@ -74,16 +77,16 @@ class Spelling extends Model {
   }
 
   answer (answer) {
-    var lowerCaseAnswer = answer.toLowerCase().trim()
-    if (lowerCaseAnswer === this.getCurrentSpellingAnswer()) {
+    var lowerCaseAnswer = normaliseAnswer(answer)
+    if (lowerCaseAnswer === normaliseAnswer(this.getCurrentSpellingAnswer())) {
       this.serviceLocator.say(getPhrase('correct'))
-      this.emit('correct', lowerCaseAnswer)
+      this.emit('correct', answer.toLowerCase())
       this.next()
       return true
     } else {
       this.serviceLocator.say(getPhrase('wrong'))
       this.set('mistakes', this.get('mistakes') + 1)
-      this.emit('wrong', lowerCaseAnswer)
+      this.emit('wrong', answer.toLowerCase())
       this.ask(0.75)
       return false
     }
