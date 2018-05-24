@@ -6,6 +6,7 @@ var Model = require('./models/spelling')
     , require('./data/spellings-year4-summer-week2.json')
     , require('./data/spellings-year4-summer-week3.json')
     , require('./data/spellings-year4-summer-week4.json')
+    , require('./data/spellings-year4-summer-statutory.json')
     , require('./data/spellings-year1-7-may-2018.json')
     , require('./data/spellings-year1-14-may-2018.json')
     ]
