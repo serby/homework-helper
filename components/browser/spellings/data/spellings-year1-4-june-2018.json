@@ -1,0 +1,28 @@
+{
+  "uri": "year1-4-june-2018",
+  "description": "Year 1 - 4 June 2018 - 'a-e' split digraph. Magic 'e'",
+  "spellings": [
+    "also",
+    "bake",
+    "cage",
+    "cake",
+    "came",
+    "craze",
+    "gave",
+    "grade",
+    "grape",
+    "have",
+    "late",
+    "made",
+    "make",
+    "maze",
+    "pale",
+    "pave",
+    "shape",
+    "shave",
+    "snake",
+    { "question": "Our. Would you like to come to our house.", "answer": "our" },
+    { "question": "Pave. I will tell you a tale from this book.", "answer": "tale" },
+    { "question": "Tale. I will tell you a tale from this book.", "answer": "tale" }
+  ]
+}
