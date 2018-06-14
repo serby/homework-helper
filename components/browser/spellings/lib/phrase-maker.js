@@ -5,9 +5,11 @@ var allPhrases =
     , 'Very good!'
     , 'Boom boom boom!'
     , 'Correct!'
-    , 'Oh! You are very good at this!'
+    , 'Correct amundo dude!'
+    , 'You are very good at this!'
     , 'Wooo! yay! That is right!'
     , 'Yep, good job!'
+    , 'YES! You little beauty!'
     , 'You\'re right, well done' ]
   , wrong:
     [ 'Oops! Make sure you double check your answer.'
@@ -20,6 +22,7 @@ var allPhrases =
     [ 'Nice job! You should get a prize.'
     , 'Well done! You\'re really clever.'
     , 'Yeah! Whoop whoop yay!'
+    , 'Awesome job! This calls for pizza!'
     , 'Good work buddy! You\'re a master speller.'
     , 'Give me five dude, you got them all right!'
     ]
