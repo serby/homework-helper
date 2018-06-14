@@ -11,6 +11,8 @@ var Model = require('./models/spelling')
     ]
   , initSay = require('./lib/say')
 
+if (process.env.NODE_ENV !== 'production') spellingGroups.push(require('./data/test.json'))
+
 function init (serviceLocator) {
 
   var collection = new Collection(serviceLocator)
