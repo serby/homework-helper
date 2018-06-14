@@ -3,7 +3,7 @@
     h2.h4.dragon {{model.description}}
     .output.js-spellings
       each spelling in model.getSpellingList()
-        span.correct #{spelling} 
+        span.preview #{spelling} 
 
     p You will be tested on #{model.get('total')} spellings.
 

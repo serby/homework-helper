@@ -38,9 +38,9 @@ class Spelling extends Model {
     this.ask()
   }
 
-  ask (rate) {
+  ask () {
     var current = this.getCurrentSpellingQuestion()
-    this.serviceLocator.say('How do you spell. ' + current, rate)
+    this.serviceLocator.say('How do you spell. ' + current)
     this.emit('ask', current)
   }
 
@@ -66,28 +66,36 @@ class Spelling extends Model {
   }
 
   complete () {
-    this.serviceLocator.say(getPhrase('wellDone'))
-    if (this.get('mistakes') === 0) {
-      this.serviceLocator.say('You didn\'t make a single mistake.')
-    } else {
-      this.serviceLocator.say('I think you need a little more practice. You made ' +
-        this.get('mistakes') + ' ' + plural('mistake', this.get('mistakes')) + '.')
-    }
-    this.emit('complete', this.get('total'), this.get('mistakes'))
+    this.serviceLocator.say('Well done for getting through them all. Some of those were tough!', function () {
+      if (this.get('mistakes') === 0) {
+        this.serviceLocator.say('You didn\'t make a single mistake. ' + getPhrase('wellDone'), function () {
+          this.emit('complete', this.get('total'), this.get('mistakes'))
+        }.bind(this))
+      } else {
+        this.serviceLocator.say('I think you need a little more practice. You made ' +
+          this.get('mistakes') + ' ' + plural('mistake', this.get('mistakes')) + '.', function () {
+          this.emit('complete', this.get('total'), this.get('mistakes'))
+        }.bind(this))
+      }
+    }.bind(this))
   }
 
   answer (answer) {
     var lowerCaseAnswer = normaliseAnswer(answer)
     if (lowerCaseAnswer === normaliseAnswer(this.getCurrentSpellingAnswer())) {
-      this.serviceLocator.say(getPhrase('correct'))
       this.emit('correct', answer.toLowerCase())
-      this.next()
+      this.serviceLocator.say(getPhrase('correct'), function () {
+
+        this.next()
+      }.bind(this))
+
       return true
     } else {
-      this.serviceLocator.say(getPhrase('wrong'))
       this.set('mistakes', this.get('mistakes') + 1)
       this.emit('wrong', answer.toLowerCase())
-      this.ask(0.75)
+      this.serviceLocator.say(getPhrase('wrong'), function () {
+        this.ask()
+      }.bind(this))
       return false
     }
   }

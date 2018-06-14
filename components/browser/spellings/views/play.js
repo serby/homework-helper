@@ -19,20 +19,18 @@ class PlayView extends View {
   }
 
   onComplete (total, mistakes) {
+    this.$el.find('.js-end').removeClass('is-hidden')
+    if (mistakes === 0) {
+      this.$el.find('.js-no-mistakes').removeClass('is-hidden')
+      this.$el.find('.js-no-mistakes iframe').attr('src', 'https://www.youtube.com/embed/QH2-TGUlwu4?autoplay=1')
+    } else {
+      this.$el.find('.js-mistakes').removeClass('is-hidden')
+    }
+    this.$el.find('.js-form').addClass('is-hidden')
     delay(() => {
-      this.$el.find('.js-end').removeClass('is-hidden')
-      if (mistakes === 0) {
-        this.$el.find('.js-no-mistakes').removeClass('is-hidden')
-        this.$el.find('.js-no-mistakes iframe').attr('src', 'https://www.youtube.com/embed/QH2-TGUlwu4?autoplay=1')
-      } else {
-        this.$el.find('.js-mistakes').removeClass('is-hidden')
-      }
-      this.$el.find('.js-form').addClass('is-hidden')
-      delay(() => {
-        this.remove()
-        this.serviceLocator.router('/spellings')
-      }, 30000)
-    }, 5000)
+      this.remove()
+      this.serviceLocator.router('/spellings')
+    }, 30000)
   }
   showCurrentWord (timeout = 3000) {
     this.$el.find('.js-word').removeClass('is-hidden').html(this.model.getCurrentSpellingAnswer())
@@ -51,6 +49,7 @@ class PlayView extends View {
   }
 
   onCorrect (answer) {
+    this.$el.find('.js-answer').focus().val('')
     this.$el.find('.js-output').append('<span class="attempt correct">' + answer + '</span> ')
   }
 
