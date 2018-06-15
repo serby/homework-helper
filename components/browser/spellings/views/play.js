@@ -32,10 +32,10 @@ class PlayView extends View {
       this.serviceLocator.router('/spellings')
     }, 30000)
   }
-  showCurrentWord (timeout = 3000) {
+  showCurrentWord (timeout = 2500) {
     this.$el.find('.js-word').removeClass('is-hidden').html(this.model.getCurrentSpellingAnswer())
     delay(() => {
-      this.$el.find('.js-word').addClass('is-hidden').html()
+      this.$el.find('.js-word').addClass('is-hidden').html('')
     }, timeout)
   }
   onStart () {
@@ -55,7 +55,7 @@ class PlayView extends View {
 
   onWrong (answer) {
     this.$el.find('.js-output').append('<span class="attempt wrong">' + answer + '</span> ')
-    this.showCurrentWord(2000)
+    this.showCurrentWord(1500)
   }
 
   handleSubmit (e) {
