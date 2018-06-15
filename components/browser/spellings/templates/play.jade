@@ -14,11 +14,9 @@
         button.button.js-btn-repeat(type='button') Say Again
     .js-output.output
     .js-end.is-hidden
-      .js-no-mistakes.is-hidden
-        iframe.bottom-margin(width='100%', height='480', src='', frameborder='0', allowfullscreen)
-
+      .js-no-mistakes.is-hidden.video-wrapper.bottom-margin
+        iframe(width='100%', height='480', src='', frameborder='0', allowfullscreen,  allow='autoplay; encrypted-media')
       .js-mistakes.is-hidden
-
         img.bottom-margin(src='/assets/img/content/cat.jpg')
 
       .button-group.centered

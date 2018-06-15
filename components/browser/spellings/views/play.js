@@ -3,6 +3,18 @@ var View = require('ventnor')
   , template = compileJade(__dirname + '/../templates/play.jade')
   , delay = require('lodash.delay')
   , dragon = require('../lib/dragon')
+  , rewards =
+    [ { id: 'QH2-TGUlwu4'
+    , delay: 30000
+    }
+    , { id: 'KHQhp2cGZtE'
+    , delay: 280000
+    }
+  ]
+
+function pickReward () {
+  return rewards[Math.round(Math.random() * (rewards.length - 1))]
+}
 
 class PlayView extends View {
 
@@ -20,17 +32,20 @@ class PlayView extends View {
 
   onComplete (total, mistakes) {
     this.$el.find('.js-end').removeClass('is-hidden')
+    var delayLength = 30000
+      , reward = pickReward()
     if (mistakes === 0) {
       this.$el.find('.js-no-mistakes').removeClass('is-hidden')
-      this.$el.find('.js-no-mistakes iframe').attr('src', 'https://www.youtube.com/embed/QH2-TGUlwu4?autoplay=1')
+      this.$el.find('.js-no-mistakes iframe').attr('src', 'https://www.youtube.com/embed/' + reward.id + '?rel=0&showinfo=0&autoplay=1')
+      delayLength = reward.delay
     } else {
       this.$el.find('.js-mistakes').removeClass('is-hidden')
     }
     this.$el.find('.js-form').addClass('is-hidden')
-    delay(() => {
+    this.timeout = delay(() => {
       this.remove()
       this.serviceLocator.router('/spellings')
-    }, 30000)
+    }, delayLength)
   }
   showCurrentWord (timeout = 2500) {
     this.$el.find('.js-word').removeClass('is-hidden').html(this.model.getCurrentSpellingAnswer())
@@ -39,6 +54,7 @@ class PlayView extends View {
     }, timeout)
   }
   onStart () {
+    if (this.timeout) clearTimeout(this.timeout)
     this.showCurrentWord()
     this.$el.find('.js-answer').focus().val('')
   }
