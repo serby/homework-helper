@@ -32,10 +32,11 @@ class Spelling extends Model {
 
   start () {
     this.emit('start')
-    this.serviceLocator.say('Are you ready to start?')
-    this.set('current', 1)
-    this.set('mistakes', 0)
-    this.ask()
+    this.serviceLocator.say('Are you ready to start?', () => {
+      this.set('current', 1)
+      this.set('mistakes', 0)
+      this.ask()
+    })
   }
 
   ask () {
