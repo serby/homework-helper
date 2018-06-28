@@ -9,10 +9,11 @@ var Model = require('./models/spelling')
     , require('./data/spellings-year1-4-june-2018.json')
     , require('./data/spellings-year1-14-june-2018.json')
     , require('./data/spellings-year1-19-june-2018.json')
+    , require('./data/spellings-year1-28-june-2018.json')
     ]
   , initSay = require('./lib/say')
 
-if (process.env.NODE_ENV !== 'production') spellingGroups.push(require('./data/test.json'))
+if (process.env.NODE_ENV === 'development') spellingGroups.push(require('./data/test.json'))
 
 function init (serviceLocator) {
 

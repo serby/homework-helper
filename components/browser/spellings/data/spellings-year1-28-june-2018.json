@@ -1,0 +1,28 @@
+{
+  "uri": "year1-28-june-2018",
+  "description": "Year 1 - 28 june 2018 - 'e-e' split digraph. Magic 'e'",
+  "spellings": [
+    "athlete",
+    "Chinese",
+    "complete",
+    "concrete",
+    "delete",
+    "Eve",
+    "even",
+    "evening",
+    "extreme",
+    { "question": "gene. They found the gene that controls eye colour.", "answer": "gene" },
+    "Japanese",
+    { "question": "obese. Poor diet and not enough exercise can make you obese.", "answer": "obese" },
+    { "question": "obsolete. The game was obsolete as it didn't work the new console.", "answer": "obsolete" },
+    "persevere",
+    "Pete",
+    { "question": "precede. The flower girls were told to precede the bride as she walked down the isle.", "answer": "precede" },
+    "scene",
+    { "question": "scheme. The teacher had a new scheme of rewarding hard work with stickers.", "answer": "scheme" },
+    "sincere",
+    "Steve",
+    { "question": "theme. This terms theme was the Vikings", "answer": "theme" },
+    "these"
+  ]
+}

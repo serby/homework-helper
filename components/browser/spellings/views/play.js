@@ -10,6 +10,12 @@ var View = require('ventnor')
     , { id: 'KHQhp2cGZtE'
     , delay: 280000
     }
+    , { id: 'FYgzizpCTKU'
+    , delay: 75000
+    }
+    , { id: '6joOVjEemh4'
+    , delay: 150000
+    }
   ]
 
 function pickReward () {
@@ -36,7 +42,8 @@ class PlayView extends View {
       , reward = pickReward()
     if (mistakes === 0) {
       this.$el.find('.js-no-mistakes').removeClass('is-hidden')
-      this.$el.find('.js-no-mistakes iframe').attr('src', 'https://www.youtube.com/embed/' + reward.id + '?rel=0&showinfo=0&autoplay=1')
+      this.$el.find('.js-no-mistakes iframe').attr('src', 'https://www.youtube.com/embed/' +
+        reward.id + '?rel=0&showinfo=0&autoplay=1')
       delayLength = reward.delay
     } else {
       this.$el.find('.js-mistakes').removeClass('is-hidden')
