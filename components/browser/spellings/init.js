@@ -2,17 +2,14 @@ var Model = require('./models/spelling')
   , Collection = require('./collections/collection')
   , initController = require('./controllers/controller')
   , spellingGroups =
-    [ require('./data/spellings-year4-summer2-week1')
-    , require('./data/spellings-year4-summer2-week2')
-    , require('./data/spellings-year4-summer2-week3')
-    , require('./data/spellings-year4-summer2-week4')
-    , require('./data/spellings-year1-4-june-2018.json')
-    , require('./data/spellings-year1-14-june-2018.json')
-    , require('./data/spellings-year1-19-june-2018.json')
-    , require('./data/spellings-year1-28-june-2018.json')
-    ]
+  [ require(`./data/spellings-year5-michaelmas1-week1.json`)
+  , require(`./data/spellings-year5-michaelmas1-week2.json`)
+  , require(`./data/spellings-year5-michaelmas1-week3.json`)
+  , require(`./data/spellings-year5-michaelmas1-week4.json`)
+  , require(`./data/spellings-year5-michaelmas1-week5.json`)
+  , require(`./data/spellings-year5-michaelmas1-week6.json`)
+  ]
   , initSay = require('./lib/say')
-
 if (process.env.NODE_ENV === 'development') spellingGroups.push(require('./data/test.json'))
 
 function init (serviceLocator) {
