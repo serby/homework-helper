@@ -6958,10 +6958,10 @@ p-map@^1.1.1:
   resolved "https://registry.yarnpkg.com/p-map/-/p-map-1.2.0.tgz#e4e94f311eabbc8633a1e79908165fca26241b6b"
   integrity sha512-r6zKACMNhjPJMTl8KcFH4li//gkrXWfbD6feV8l6doRHlzljFWGJ2AP6iKaCJXyZmAUMOPtvbW7EXkbWO/pLEA==
 
-page@^1.6.3:
-  version "1.11.2"
-  resolved "https://registry.yarnpkg.com/page/-/page-1.11.2.tgz#8530112b61a99a09dd0c5daf6cc2ede88e3e3207"
-  integrity sha512-ypV9Eqla1iNpmc5B2+Uhyr5KyVXmcZK24AS3ojk+Hrf3Q33nfg6oODNrYkUmnUqwk3EylihIMREwh8LbhpPgIw==
+page@1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/page/-/page-1.11.0.tgz#0fbe95459346b20f624debc5729a98b86e9d3a15"
+  integrity sha512-yfJvVMTCN2VE096haK0KyHNZ/+PmNjSfB7O36R9opc9I4sWqpS+ihWfUd+bmd2R2n3E0/lJgcF11ycHw06WArg==
   dependencies:
     path-to-regexp "~1.2.1"
 

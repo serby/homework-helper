@@ -59,7 +59,7 @@
     "morgan": "^1.6.1",
     "node-notifier": "^4.2.3",
     "nodemailer": "^1.4.0",
-    "page": "^1.6.3",
+    "page": "1.11.0",
     "pliers": "^1.2.1",
     "pliers-clean-shrinkwrap": "^1.0.1",
     "pliers-imagemin": "^2.0.2",
