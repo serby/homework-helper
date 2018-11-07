@@ -8,8 +8,8 @@
   "licence": "ISC",
   "private": true,
   "engines": {
-    "node": ">=6.7.0",
-    "npm": "=2"
+    "node": "^8.12.0",
+    "yarn": "^1.10.1"
   },
   "scripts": {
     "start": "node site/app",
@@ -63,7 +63,7 @@
     "pliers": "^1.2.1",
     "pliers-clean-shrinkwrap": "^1.0.1",
     "pliers-imagemin": "^2.0.2",
-    "pliers-modernizr": "^0.1.2",
+    "pliers-modernizr": "^1.1.0",
     "plural": "^0.1.6",
     "redirect-trailing-slash": "0.0.0",
     "response-time": "^2.3.1",
