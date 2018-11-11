@@ -1,0 +1,27 @@
+{
+  "uri": "year5-michaelmas2-week2",
+  "description": "Year 5 - Michaelmas 2 - Week 2",
+  "spellings": [
+    "bruise",
+    "category",
+    "determined",
+    "equipment",
+    "exaggerate",
+    { "question": "heard. I heard sounds coming from the fridge.", "answer": "heard" },
+    { "question": "herd. I think there is a herd of badgers in the fridge.", "answer": "herd" },
+    { "question": "aloud. I shouted aloud as the badger jumped out of the fridge.", "answer": "aloud" },
+    { "question": "allowed. Badgers are not allowed in my fridge.", "answer": "allowed" },
+    { "question": "morning. This morning I found some badgers in my fridge", "answer": "morning" },
+    { "question": "mourning. I was in mourning after I found a dead badger in the fridge", "answer": "mourning" },
+    { "question": "which. I was not sure which badger ate all the butter.", "answer": "which" },
+    { "question": "witch. My friend the witch, did a spell and all the badgers disappeared.", "answer": "witch" },
+    { "question": "past. I've not had badgers in the fridge in the past.", "answer": "past" },
+    { "question": "passed. One of the badgers passed me the olives when I open the fridge", "answer": "passed" },
+    { "question": "wary. I was wary of eating the cheese after finding a badger hair in it.", "answer": "wary" },
+    { "question": "weary. I was weary after spending the day cleaning my fridge.", "answer": "weary" },
+    { "question": "bridal. One badger was wearing a wedding dress from the bridal shop", "answer": "bridal" },
+    { "question": "bridle. I put the bridle from a small horse on the badger and rode it around the kitchen.", "answer": "bridle" },
+    { "question": "desert. A badger had a bag of sand from the desert.", "answer": "desert" },
+    { "question": "dessert. There were badger footprints in the chocolate dessert", "answer": "dessert" }
+  ]
+}
