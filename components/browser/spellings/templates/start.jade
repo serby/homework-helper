@@ -4,8 +4,16 @@
     .output.js-spellings
       each spelling in model.getSpellingList()
         span.preview #{spelling} 
+    
+    if model.get('mistakenWords').length > 0
+      h3.h5 Tricky Spellings
+      p You've problems with the following. Double check these before you start.
+      .output
+        each count, word  in model.getMistakenStats()
+          span.preview #{word} (#{count}) 
 
     p You will be tested on #{model.get('total')} spellings.
 
     .button-group.centered
       button.button.button--primary.mobile-one-whole.js-btn-start Start
+

@@ -10,11 +10,13 @@ class Spelling extends Model {
 
   constructor (serviceLocator, spellings) {
     super()
+    this.allMistakes = JSON.parse(window.localStorage.getItem('mistakenWords')) || {}
     Model.call(this, serviceLocator
       , { current: 1
         , total: 0
         , mistakes: 0
         , _id: spellings.uri
+        , mistakenWords: this.allMistakes[spellings.uri] || []
         , description: spellings.description })
 
     this.setSpellings(spellings.spellings)
@@ -37,6 +39,17 @@ class Spelling extends Model {
       this.set('mistakes', 0)
       this.ask()
     })
+  }
+
+  getMistakenStats () {
+    return this.get('mistakenWords').reduce((collection, word) => {
+      if (collection[word]) {
+        collection[word] += 1
+      } else {
+        collection[word] = 1
+      }
+      return collection
+    }, {})
   }
 
   ask () {
@@ -69,21 +82,21 @@ class Spelling extends Model {
   complete () {
     this.serviceLocator.say('Well done for getting through them all. Some of those were tough!', function () {
       if (this.get('mistakes') === 0) {
-        this.serviceLocator.say('You didn\'t make a single mistake. ' + getPhrase('wellDone'), function () {
-          this.emit('complete', this.get('total'), this.get('mistakes'))
-        }.bind(this))
+        this.serviceLocator.say('You didn\'t make a single mistake. ' + getPhrase('wellDone'))
+        this.emit('complete', this.get('total'), this.get('mistakes'))
       } else {
         this.serviceLocator.say('I think you need a little more practice. You made ' +
-          this.get('mistakes') + ' ' + plural('mistake', this.get('mistakes')) + '.', function () {
-          this.emit('complete', this.get('total'), this.get('mistakes'))
-        }.bind(this))
+          this.get('mistakes') + ' ' + plural('mistake', this.get('mistakes')) + '.')
+        this.emit('complete', this.get('total'), this.get('mistakes'))
       }
     }.bind(this))
   }
 
   answer (answer) {
     var lowerCaseAnswer = normaliseAnswer(answer)
-    if (lowerCaseAnswer === normaliseAnswer(this.getCurrentSpellingAnswer())) {
+      , correctAnswer = normaliseAnswer(this.getCurrentSpellingAnswer())
+      , mistakenWords
+    if (lowerCaseAnswer === correctAnswer) {
       this.emit('correct', answer.toLowerCase())
       this.serviceLocator.say(getPhrase('correct'), function () {
 
@@ -93,6 +106,10 @@ class Spelling extends Model {
       return true
     } else {
       this.set('mistakes', this.get('mistakes') + 1)
+      mistakenWords = [correctAnswer].concat(this.get('mistakenWords'))
+      this.set('mistakenWords', mistakenWords)
+      this.allMistakes[this.get('_id')] = mistakenWords
+      window.localStorage.setItem('mistakenWords', JSON.stringify(this.allMistakes))
       this.emit('wrong', answer.toLowerCase())
       this.serviceLocator.say(getPhrase('wrong'), function () {
         this.ask()
