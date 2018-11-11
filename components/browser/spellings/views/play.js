@@ -5,13 +5,13 @@ var View = require('ventnor')
   , dragon = require('../lib/dragon')
   , rewards =
     [ { id: 'QH2-TGUlwu4'
-    , delay: 30000
+    , delay: 60000
     }
-    , { id: 'KHQhp2cGZtE'
-    , delay: 280000
+    , { id: 'C3JDWSqM8iw'
+    , delay: 90000
     }
-    , { id: 'FYgzizpCTKU'
-    , delay: 75000
+    , { id: 'BLIJd97WTB0'
+    , delay: 110000
     }
     , { id: '6joOVjEemh4'
     , delay: 150000
@@ -22,7 +22,12 @@ var View = require('ventnor')
     , { id: 'ZZ0omQHiW4A'
     , delay: 240000
     }
-  ]
+    , { id: 'TQWhJnbBpgk'
+    , delay: 360000
+    }
+    , { id: 'Jo6pgJa_2EU'
+    , delay: 350000
+    }]
 
 function pickReward () {
   return rewards[Math.round(Math.random() * (rewards.length - 1))]
