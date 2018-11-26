@@ -15,6 +15,7 @@ var Model = require('./models/spelling')
   , require(`./data/spellings-year5-michaelmas2-week5.json`)
   , require(`./data/spellings-year2-8-oct-2018.json`)
   , require(`./data/spellings-year2-7-nov-2018.json`)
+  , require(`./data/spellings-year2-19-nov-2018.json`)
   ]
   , initSay = require('./lib/say')
 if (process.env.NODE_ENV === 'development') spellingGroups.push(require('./data/test.json'))
