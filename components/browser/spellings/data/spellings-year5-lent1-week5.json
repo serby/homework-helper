@@ -1,0 +1,27 @@
+{
+  "uri": "year5-lent1-week5",
+  "description": "Year 5 - Lent 1 - Week 5",
+  "spellings": [
+    "interfere",
+    "interrupt",
+    "opportunity",
+    "sacrifice",
+    "yacht",
+    { "question": "who's. who's going to the cheese shop?", "answer": "who's" },
+    { "question": "whose. whose buffalo is this?", "answer": "whose" },
+    { "question": "aisle. The buffalo wings are in the chicken aisle.", "answer": "aisle" },
+    { "question": "isle. The Isle of Wight doesn't have any buffalos.", "answer": "isle" },
+    { "question": "affect. The bad weather will affect my plans for the weekend.", "answer": "affect" },
+    { "question": "effect. The beneficial effect of exercise is well known.", "answer": "effect" },
+    { "question": "father. Luke, I am your father.", "answer": "father" },
+    { "question": "farther. The buffalos walked farther than the farmer.", "answer": "farther" },
+    { "question": "advice. I need advice on looking after my pet buffalo.", "answer": "advice" },
+    { "question": "advise. I advise you not try and ride the buffalo around your bedroom.", "answer": "advise" },
+    { "question": "device. The device needs new batteries.", "answer": "device" },
+    { "question": "devise. I'm going to devise a new plan to catch a buffalo.", "answer": "devise" },
+    { "question": "licence. You need a TV licence to watch TV.", "answer": "licence" },
+    { "question": "license. I want to license your game", "answer": "license" },
+    { "question": "practice. The buffalo went to football practice.", "answer": "practice" },
+    { "question": "practise. You need to practise your piano homework tonight.", "answer": "practise" }
+  ]
+}
