@@ -1,5 +1,7 @@
 # Learn
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/serby/homework-helper.svg)](https://greenkeeper.io/)
+
 Learning tools for children
 
 ## Setup
