@@ -4,30 +4,16 @@ var View = require('ventnor')
   , delay = require('lodash.delay')
   , dragon = require('../lib/dragon')
   , rewards =
-    [ { id: 'QH2-TGUlwu4'
-    , delay: 60000
-    }
-    , { id: 'C3JDWSqM8iw'
-    , delay: 90000
-    }
-    , { id: 'BLIJd97WTB0'
+    [ { id: 'yP86-TR6IME'
+    , delay: 160000
+    },
+    { id: '93lrosBEW-Q'
+    , delay: 184000
+    },
+    { id: 'x8DKg_fsacM'
     , delay: 110000
     }
-    , { id: '6joOVjEemh4'
-    , delay: 150000
-    },
-    , { id: '5Wf4iBeZMnc'
-    , delay: 155000
-    }
-    , { id: 'ZZ0omQHiW4A'
-    , delay: 240000
-    }
-    , { id: 'TQWhJnbBpgk'
-    , delay: 360000
-    }
-    , { id: 'Jo6pgJa_2EU'
-    , delay: 350000
-    }]
+    ]
 
 function pickReward () {
   return rewards[Math.round(Math.random() * (rewards.length - 1))]
