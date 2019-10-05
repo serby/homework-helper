@@ -5,13 +5,13 @@ var View = require('ventnor')
   , dragon = require('../lib/dragon')
   , rewards =
     [ { id: 'yP86-TR6IME'
-    , delay: 160000
+    , delay: 175000
     },
     { id: '93lrosBEW-Q'
-    , delay: 184000
+    , delay: 199000
     },
     { id: 'x8DKg_fsacM'
-    , delay: 110000
+    , delay: 125000
     }
     ]
 
@@ -37,7 +37,11 @@ class PlayView extends View {
     this.$el.find('.js-end').removeClass('is-hidden')
     var delayLength = 30000
       , reward = pickReward()
+    window.trackEvent('complete', 'spelling', this.model.get('_id') + ':' +
+      this.model.getCurrentSpellingAnswer(), total + ':' + mistakes, reward.id)
     if (mistakes === 0) {
+      window.trackEvent('reward', 'spelling', this.model.get('_id') + ':' +
+      this.model.getCurrentSpellingAnswer(), )
       this.$el.find('.js-no-mistakes').removeClass('is-hidden')
       this.$el.find('.js-no-mistakes iframe').attr('src', 'https://www.youtube.com/embed/' +
         reward.id + '?rel=0&showinfo=0&autoplay=1')
@@ -51,13 +55,16 @@ class PlayView extends View {
       this.serviceLocator.router('/spellings')
     }, delayLength)
   }
-  showCurrentWord (timeout = 2500) {
+  showCurrentWord (timeout = 2000) {
+    window.trackEvent('show', 'spelling', this.model.get('_id') + ':' + this.model.getCurrentSpellingAnswer())
     this.$el.find('.js-word').removeClass('is-hidden').html(this.model.getCurrentSpellingAnswer())
     delay(() => {
       this.$el.find('.js-word').addClass('is-hidden').html('')
     }, timeout)
+    this.showWordStart = Date.now()
   }
   onStart () {
+    window.trackEvent('start', 'spelling', this.model.get('_id'))
     if (this.timeout) clearTimeout(this.timeout)
     this.showCurrentWord()
     this.$el.find('.js-answer').focus().val('')
@@ -69,13 +76,15 @@ class PlayView extends View {
   }
 
   onCorrect (answer) {
+    window.trackEvent('correct', 'spelling', this.model.get('_id') + ':' + this.model.getCurrentSpellingAnswer(), Date.now() - this.showWordStart)
     this.$el.find('.js-answer').focus().val('')
     this.$el.find('.js-output').append('<span class="attempt correct">' + answer + '</span> ')
   }
 
   onWrong (answer) {
+    window.trackEvent('wrong', 'spelling', this.model.get('_id') + ':' + this.model.getCurrentSpellingAnswer(), Date.now() - this.showWordStart)
     this.$el.find('.js-output').append('<span class="attempt wrong">' + answer + '</span> ')
-    this.showCurrentWord(1500)
+    this.showCurrentWord(1000)
   }
 
   handleSubmit (e) {
@@ -86,10 +95,12 @@ class PlayView extends View {
     $answer.focus()
 
     if (answer.trim() === '') return false
+    window.trackEvent('time', 'spelling', this.model.get('_id') + ':' + this.model.getCurrentSpellingAnswer(), Date.now() - this.showWordStart)
     this.emit('submit', answer)
   }
 
   handleRepeat () {
+    window.trackEvent('repeat', 'spelling', this.model.get('_id') + ':' + this.model.getCurrentSpellingAnswer())
     this.emit('repeat')
     this.$el.find('.js-answer').focus()
   }

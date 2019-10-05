@@ -19,6 +19,10 @@ var serviceLocator = require('service-locator')()
   , breakpoints = require('./breakpoints')
 
 router()
+router('*', function (ctx, next) {
+  window.track()
+  next()
+})
 
 // Create breakpoints on the next tick so that modules
 // can know which breakpoint the page was loaded in
