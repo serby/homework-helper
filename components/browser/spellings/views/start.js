@@ -9,11 +9,17 @@ class StartView extends View {
     super(serviceLocator, model)
     View.apply(this, arguments)
     this.model = model
+    this.peek = false
+  }
+
+  onChange () {
+    this.peek = this.$el.find('.js-peek').is(':checked')
   }
 
   render () {
     this.$el.empty().append(dragon(template({ model: this.model }), this.model))
-    this.$el.find('.js-btn-start').on('click', this.emit.bind(this, 'start'))
+    this.$el.find('.js-btn-start').on('click', () => this.emit('start', this.peek))
+    this.$el.find('.js-peek').on('change', this.onChange.bind(this))
     return this
   }
 

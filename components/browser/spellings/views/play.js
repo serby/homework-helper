@@ -18,13 +18,14 @@ var View = require('ventnor')
 function pickReward () {
   return rewards[Math.round(Math.random() * (rewards.length - 1))]
 }
-
+const peekTimeout = 2000
 class PlayView extends View {
 
-  constructor (serviceLocator, model) {
+  constructor (serviceLocator, model, peek) {
     super(serviceLocator, model)
     View.apply(this, arguments)
     this.model = model
+    this.peek = peek
 
     model.on('start', this.onStart.bind(this))
     model.on('next', this.onNext.bind(this))
@@ -66,12 +67,12 @@ class PlayView extends View {
   onStart () {
     window.trackEvent('start', 'spelling', this.model.get('_id'))
     if (this.timeout) clearTimeout(this.timeout)
-    this.showCurrentWord()
+    this.showCurrentWord(this.peek ? peekTimeout : 0)
     this.$el.find('.js-answer').focus().val('')
   }
 
   onNext () {
-    this.showCurrentWord()
+    this.showCurrentWord(this.peek ? peekTimeout : 0)
     this.$el.find('.js-answer').focus().val('')
   }
 
@@ -84,7 +85,7 @@ class PlayView extends View {
   onWrong (answer) {
     window.trackEvent('wrong', 'spelling', this.model.get('_id') + ':' + this.model.getCurrentSpellingAnswer(), Date.now() - this.showWordStart)
     this.$el.find('.js-output').append('<span class="attempt wrong">' + answer + '</span> ')
-    this.showCurrentWord(1000)
+    this.showCurrentWord(this.peek ? (peekTimeout / 2): 0)
   }
 
   handleSubmit (e) {

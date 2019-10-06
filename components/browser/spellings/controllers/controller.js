@@ -40,9 +40,9 @@ function controller (serviceLocator, collection) {
       , viewModel = (ctx.querystring === 'random') ? random(model, collection) : model
       , startView = new StartView(serviceLocator, viewModel)
 
-    startView.on('start', () => {
+    startView.on('start', peek => {
       startView.remove()
-      serviceLocator.router('/spellings/' + ctx.params.uri + '/play')
+      serviceLocator.router('/spellings/' + ctx.params.uri + '/play?' + (peek ? 'peek' : ''))
     })
 
     window.$('#app').html(startView.render().$el)
@@ -50,7 +50,7 @@ function controller (serviceLocator, collection) {
 
   serviceLocator.router('/spellings/:uri/play', ctx => {
     var model = collection.get(ctx.params.uri)
-      , playView = new PlayView(serviceLocator, model)
+      , playView = new PlayView(serviceLocator, model, ctx.querystring === 'peek')
 
     playView.on('repeat', () => {
       model.ask(0.75)

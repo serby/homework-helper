@@ -7,12 +7,18 @@
     
     if model.get('mistakenWords').length > 0
       h3.h5 Tricky Spellings
-      p You've problems with the following. Double check these before you start.
+      p You’ve had problems with the following. Double check these before you start.
       .output
         each count, word  in model.getMistakenStats()
           span.preview #{word} (#{count}) 
 
     p You will be tested on #{model.get('total')} spellings.
+
+    .field(id='peek')
+      .field__answer
+        label
+          input.js-peek.control.control--boolean(type='checkbox', name='peek', value='true')
+          span Have a sneaky peek  before each spelling?
 
     .button-group.centered
       button.button.button--primary.mobile-one-whole.js-btn-start Start
